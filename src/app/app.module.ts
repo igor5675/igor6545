@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { FirstPageComponent } from './pages/first/first.component';
 import { SecondPageComponent } from './pages/second/second.component';
 import { AddNewPassengerComponent } from './pages/passengers/add-new-passenger.component';
+import { EditPassengerComponent } from './pages/passengers/edit-passenger.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -24,7 +25,8 @@ import { from } from 'rxjs';
     AppComponent,
     FirstPageComponent,
     SecondPageComponent,
-    AddNewPassengerComponent
+    AddNewPassengerComponent,
+    EditPassengerComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { from } from 'rxjs';
     PassengersService
   ],
   entryComponents:[
-    AddNewPassengerComponent
+    AddNewPassengerComponent,
+    EditPassengerComponent
   ],
   bootstrap: [AppComponent]
 })

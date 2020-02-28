@@ -2,7 +2,7 @@ import { Action, createSelector, State, StateContext, Store, Selector } from '@n
 import { Passenger, PassengersStateModel } from '../models/master-data.model';
 
 import { PassengersService } from '../services/passengers.service';
-import { GetPassengers, AddPassenger } from '../actions/passengers.actions';
+import { GetPassengers, AddPassenger, SavePassenger } from '../actions/passengers.actions';
 
 /* */
 @State<PassengersStateModel>({
@@ -24,6 +24,20 @@ export class PassengersState {
             state.passengers = serviceTempData;
         }
         state.passengers.push(action); // Add new passenger
+        ctx.setState({
+            ...state,
+            passengers: [
+                ...state.passengers,
+                /*...serviceTempData*/
+            ]
+        });
+        
+    }
+
+    @Action(SavePassenger) savePassenger(ctx: StateContext<PassengersStateModel>, action: SavePassenger) {
+        console.log('--- @Action(SavePassenger) ---');
+        const state = ctx.getState();
+        state.passengers.find((passenger: Passenger) => passenger.id == action.id).name = action.name;
         ctx.setState({
             ...state,
             passengers: [

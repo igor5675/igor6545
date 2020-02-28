@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
 
 import { AddNewPassengerComponent } from './pages/passengers/add-new-passenger.component';
+import { EditPassengerComponent } from './pages/passengers/edit-passenger.component';
 import { Observable, Subscription } from 'rxjs';
 import { Passenger } from './models/master-data.model';
 import { Store, Select } from '@ngxs/store';
@@ -32,6 +33,19 @@ export class AppComponent implements OnInit {
     dialogConfig.autoFocus = true;
 
     this.dialog.open(AddNewPassengerComponent, dialogConfig);
+  }
+
+  editPassenger(passenger: Passenger) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+      passenger: passenger
+    };
+
+    this.dialog.open(EditPassengerComponent, dialogConfig);
   }
 
   ngOnInit() {

@@ -11,12 +11,12 @@ export class PassengersService {
 
     GetPassengers(): Passenger[] {
         return [{
-            id: 1,
+            id: Math.random(),
             name: 'Darien Fawkes',
             description: '',
             participation: 1
         }, {
-            id: 2,
+            id: Math.random(),
             name: 'Logan Cale',
             description: '',
             participation: 2

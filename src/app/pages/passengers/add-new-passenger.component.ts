@@ -22,7 +22,7 @@ export class AddNewPassengerComponent implements OnInit {
 
     addNewPassenger() {
         if(this.passengerName != '') {
-            this.store.dispatch(new AddPassenger(0, this.passengerName, '', 0)).subscribe((state: PassengersState) => {
+            this.store.dispatch(new AddPassenger(Math.random(), this.passengerName, '', 0)).subscribe((state: PassengersState) => {
                 this.passengerName = "";
                 this.dialogRef.close();
             });
